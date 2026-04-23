@@ -1,0 +1,186 @@
+   * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", sans-serif;
+      }
+
+      body {
+        height: 100vh;
+        overflow: hidden;
+        background: #0f2027;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+      }
+
+      .bg {
+        position: fixed;
+        inset: 0;
+        background: linear-gradient(120deg, #2193b0, #6dd5ed);
+        animation: gradient 10s ease infinite;
+        z-index: -2;
+      }
+
+      @keyframes gradient {
+        0% {
+          filter: hue-rotate(0deg);
+        }
+        100% {
+          filter: hue-rotate(360deg);
+        }
+      }
+
+      .bg span {
+        position: absolute;
+        width: 300px;
+        height: 300px;
+        background: rgba(255, 255, 255, 0.15);
+        filter: blur(80px);
+        border-radius: 50%;
+        animation: float 20s infinite linear;
+      }
+
+      .bg span:nth-child(1) {
+        top: 10%;
+        left: 10%;
+      }
+      .bg span:nth-child(2) {
+        bottom: 20%;
+        right: 15%;
+        animation-duration: 25s;
+      }
+      .bg span:nth-child(3) {
+        top: 40%;
+        right: 40%;
+        animation-duration: 30s;
+      }
+
+      @keyframes float {
+        from {
+          transform: translateY(0);
+        }
+        to {
+          transform: translateY(-200px);
+        }
+      }
+
+      .app {
+        width: 90%;
+        max-width: 420px;
+        text-align: center;
+      }
+      .app h1 {
+        margin-bottom: 20px;
+        font-size: 2.5em;
+      }
+
+      .search {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 20px;
+      }
+
+      .search input {
+        flex: 1;
+        padding: 12px;
+        border-radius: 10px;
+        border: none;
+        outline: none;
+      }
+
+      .search button {
+        padding: 12px 18px;
+        border: none;
+        border-radius: 10px;
+        background: #ffffff;
+        cursor: pointer;
+        transition: transform 0.2s;
+      }
+
+      .search button:active {
+        transform: scale(0.9);
+      }
+
+      .card {
+        background: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(15px);
+        border-radius: 20px;
+        padding: 25px;
+        min-height: 200px;
+        animation: cardEnter 0.8s ease;
+      }
+      .card {
+        display: none;
+      }
+
+      @keyframes cardEnter {
+        from {
+          opacity: 0;
+          transform: translateY(40px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .loader {
+        width: 40px;
+        height: 40px;
+        border: 4px solid rgba(255, 255, 255, 0.3);
+        border-top: 4px solid #fff;
+        border-radius: 50%;
+        margin: auto;
+        display: none;
+        animation: spin 1s linear infinite;
+      }
+
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      .content h2 {
+        animation: fadeUp 0.6s ease;
+      }
+
+      .content .temp {
+        font-size: 48px;
+        font-weight: bold;
+        animation: pop 0.5s ease;
+      }
+
+      .content p {
+        opacity: 0;
+        animation: fadeUp 0.5s ease forwards;
+        animation-delay: 0.3s;
+      }
+
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes pop {
+        0% {
+          transform: scale(0.5);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      @media (max-width: 480px) {
+        .search {
+          flex-direction: column;
+        }
+      }
